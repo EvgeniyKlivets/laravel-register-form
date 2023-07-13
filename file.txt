@@ -1,8 +1,10 @@
 Dowload laravel, tailwildcss(all)
+npm install -D @tailwindcss/forms
 (tailwindcss.config.js: plugins: [
     require('@tailwindcss/forms'),
   ],)
 npm run dev
+php artisan serve + в open serve
 
 php atisan migrate (table mysql)
 npm install -D @tailwindcss/forms
