@@ -1,3 +1,4 @@
+Doload laravel, tailwildcss(all)
 (tailwindcss.config.js: plugins: [
     require('@tailwindcss/forms'),
   ],)
