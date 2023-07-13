@@ -1,0 +1,9 @@
+(tailwindcss.config.js: plugins: [
+    require('@tailwindcss/forms'),
+  ],)
+npm run dev
+
+php atisan migrate (table mysql)
+npm install -D @tailwindcss/forms
+
+php artisan make:controller Auth/RegisterController. робиться контролер app/htt/controller/auth/RegisterController
