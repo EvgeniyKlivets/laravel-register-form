@@ -13,9 +13,10 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 class RegisterController extends Controller
 {
     //повернення сторінки з формою реєстрації
-    //vlidate
+    
     public function create()
     {
+        //dd(session('errors')); //виводить помилки
         return view('register');
         //return view('auth.register');
     }
@@ -23,6 +24,18 @@ class RegisterController extends Controller
     //створення нового користувача
     public function store(Request $request)//import down
     {
+        //validate
+        $request->validate([
+            'name'=>'required|string',
+            'email'=>'required|string|email|unique:users',//унікальні емайли з табл. юзерс
+            'password'=>'required|confirmed|min:8'//перевірка пароля з мінімальною кіл.сиволів 8
+
+            //масіви
+           // 'name'=>['required', 'string'],
+            //'email'=>['required','string', 'email','unique:users'],//унікальні емайли з табл. юзерс
+           // 'password'=>['required','confirmed', 'min:8']//перевірка пароля з мінімальною кіл.сиволів 8
+        ]);
+
         //dd(($request->all())); controller
         //create user
         $user = User::create([
