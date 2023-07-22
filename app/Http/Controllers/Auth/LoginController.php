@@ -4,13 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Support\Facades\Hash;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
-class RegisterController extends Controller
+class LoginController extends Controller
 {
     //повернення сторінки з формою реєстрації
     
@@ -18,7 +13,7 @@ class RegisterController extends Controller
     {
         //dd(session()->all());
         //dd(session('errors')); //виводить помилки
-        return view('register');
+        return view('login');
         //return view('auth.register');
     }
 
@@ -37,18 +32,6 @@ class RegisterController extends Controller
            // 'password'=>['required','confirmed','min:8']//перевірка пароля з мінімальною кіл.сиволів 8
         ]);
 
-        //dd(($request->all())); controller
-        //create user
-        $user = User::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=>Hash::make($request->password) // функція хешированія
-        ]);
-
-        Auth::login($user);//ipmort down
-
-        //повертаємо відповідь браузеру
-        //return redirect('/dashboard');
-        return redirect(RouteServiceProvider::HOME); // якщо є в фалі RouteServiceProvedr const (public const HOME = '/dashboard';)
+       
     }
 }
