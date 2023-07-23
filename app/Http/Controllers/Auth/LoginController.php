@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
+use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -21,17 +23,30 @@ class LoginController extends Controller
     public function store(Request $request)//import down
     {
         //validate
-        $request->validate([
-            'name'=>'required|string',
-            'email'=>'required|string|email|unique:users',//унікальні емайли з табл. юзерс
-           'password'=>'required|confirmed|min:8'//перевірка пароля з мінімальною кіл.сиволів 8
+        $credentials = $request->validate([
 
             //масіви
-           // 'name'=>['required', 'string'],
-            //'email'=>['required','string', 'email','unique:users'],//унікальні емайли з табл. юзерс
-           // 'password'=>['required','confirmed','min:8']//перевірка пароля з мінімальною кіл.сиволів 8
+           // 
+            'email'=>['required','string', 'email',],//унікальні емайли з табл. юзерс
+            'password'=>['required','string']//перевірка пароля з мінімальною кіл.сиволів 8
         ]);
 
+        if (!Auth::attempt($credentials)) {
+            //throw ValidationException::withMessages([
+               // 'email'=>'These credentails do not match our records.'
+           // ]);
+            return back()
+                ->withInput()//раніше введені дані 
+                ->withErrors([
+                'email'=>'These credentails do not match our records.'
+            ]); 
+            return redirect()->intended(RouteServiceProvider::HOME);
+        }
+        
+
        
+            
     }
+           
+    
 }
