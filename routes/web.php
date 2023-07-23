@@ -19,7 +19,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
 Route::view('/', 'welcome')->name('welcome');
+//Route::get('/profile', fn() => 'profile')->middleware('auth')->name('profile'); //test
 Route:: view('/dashboard', 'dashboard')->name('dashboard');
+
 //Route:: view('/dashboard', 'dashboard')->middleware('auth')->name('dashboard');
 //Route:: view('/register', 'register')->name('register');
 Route:: get('/register', [RegisterController::class, 'create'])->name('register');//middleware('quest')
