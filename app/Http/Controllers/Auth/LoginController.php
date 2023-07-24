@@ -31,7 +31,8 @@ class LoginController extends Controller
             'password'=>['required','string']//перевірка пароля з мінімальною кіл.сиволів 8
         ]);
 
-        if (!Auth::attempt($credentials)) {
+        if (!Auth::attempt($credentials, $request->boolean('remember'))) 
+        {
             //throw ValidationException::withMessages([
                // 'email'=>'These credentails do not match our records.'
            // ]);
@@ -40,13 +41,24 @@ class LoginController extends Controller
                 ->withErrors([
                 'email'=>'These credentails do not match our records.'
             ]); 
+
+            $request->session()->regenerate();
+
             return redirect()->intended(RouteServiceProvider::HOME);
+            
         }
         
-
-       
-            
     }
-           
+       //destroy session
+    public function destroy(Request $request)
+        {
+            Auth::logout();
+
+            $request->session()->invalidate();
+
+            $request->session()->regenerateToken();
+
+            return redirect()->route('welcome');
+        }
     
 }
