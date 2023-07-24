@@ -27,6 +27,8 @@ Route:: view('/dashboard', 'dashboard')->name('dashboard');
 Route:: get('/register', [RegisterController::class, 'create'])->name('register');//middleware('quest')
 Route:: post('/register', [RegisterController::class, 'store'])->middleware('quest');
 
+Route:: get('/welcome', [LoginController::class, 'destroy'])->middleware('auth')->name('logout');
+
 Route:: get('/login', [LoginController::class, 'create'])->name('login');//middleware('quest')
 Route:: post('/login', [LoginController::class, 'store'])->middleware('quest');
 
