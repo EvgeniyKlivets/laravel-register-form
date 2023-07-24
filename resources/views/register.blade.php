@@ -18,7 +18,7 @@
         <span class="text-xl font-black">Security</span>
       </a>
       <div>
-        <a href="{{ route('dashboard') }}" class="rounded-md bg-green-600 py-2 px-4 font-semibold text-white shadow-lg transition duration-150 ease-in-out hover:bg-green-700 hover:shadow-xl focus:shadow-xl 
+        <a href="{{ route('login') }}" class="rounded-md bg-green-600 py-2 px-4 font-semibold text-white shadow-lg transition duration-150 ease-in-out hover:bg-green-700 hover:shadow-xl focus:shadow-xl 
         focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Log in</a>
       </div>
     </header>
@@ -131,7 +131,7 @@
         </form>
 
         <div class="mt-6 flex items-center justify-center">
-          <a href="{{ route('dashboard') }}" class="text-sm font-medium text-green-600 hover:text-green-500">Already have an account?</a>
+          <a href="{{ route('login') }}" class="text-sm font-medium text-green-600 hover:text-green-500">Already have an account?</a>
         </div>
       </div>
     </main>

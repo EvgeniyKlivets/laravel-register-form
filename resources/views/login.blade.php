@@ -18,8 +18,8 @@
         <span class="text-xl font-black">Security</span>
       </a>
       <div>
-        <a href="{{ route('dashboard') }}" class="rounded-md bg-green-600 py-2 px-4 font-semibold text-white shadow-lg transition duration-150 ease-in-out hover:bg-green-700 hover:shadow-xl focus:shadow-xl 
-        focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Log in</a>
+        <a href="{{ route('welcome') }}" class="rounded-md bg-green-600 py-2 px-4 font-semibold text-white shadow-lg transition duration-150 ease-in-out hover:bg-green-700 hover:shadow-xl focus:shadow-xl 
+        focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Log out</a>
       </div>
     </header>
     <main class="flex flex-col justify-center p-6 pb-12">
@@ -27,7 +27,7 @@
         <svg class="mx-auto h-12 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
-        <h2 class="mt-2 text-2xl font-bold text-gray-900 sm:mt-6 sm:text-3xl">Create your account</h2>
+        <h2 class="mt-2 text-2xl font-bold text-gray-900 sm:mt-6 sm:text-3xl">Enter your account</h2>
       </div>
       <div class="mx-auto mt-6 w-full max-w-md rounded-xl bg-white/80 p-6 shadow-xl backdrop-blur-xl sm:mt-10 sm:p-10">
       
@@ -41,7 +41,7 @@
         @endforeach
       </ul>
       ---------------->    
-    <form action="{{route('login')}}" method="post"  autocomplete="off" >
+    <form action="{{route('login')}}" method="post"  autocomplete="off" class="space-y-6 mt-6" >
         @csrf<!- буде показувати домен в браузері->
           
 <!----------------------------------------------------Email----------------------------------------------------------------------------------------->
@@ -85,8 +85,17 @@
               @enderror
             </div>
           </div>
-          <a href="{{ route('dashboard') }}" class="w-full flex items-center justify-center rounded-md bg-green-600 py-2 px-4 font-semibold text-white shadow-lg transition duration-150 ease-in-out hover:bg-green-700 hover:shadow-xl focus:shadow-xl focus:outline-none focus:ring-2 
-            focus:ring-green-500 focus:ring-offset-2">Create</a>
+          <div class="mt-6 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <input type="checkbox" id="remember" name="remember" class="h-4 w-4
+              rounded border-gray-300 text-green-600 focus:ring-green-500"/> 
+              <label for="remember" class="text-sm text-green-800">Remember me</label>
+            </div>
+            <a href="/form/forgot-password.html" class="text-sm font-medium text-green-600 hover:text-green-500">Forgot Password</a>
+          </div>
+          <div>
+            <a href="{{route('dashboard')}}" class="flex items-center justify-center rounded-md bg-green-600 py-2 px-4 font-semibold text-white shadow-lg transition duration-150 ease-in-out hover:bg-green-700 hover:shadow-xl focus:shadow-xl 
+            focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Enter</a>
           </div>
 <!-----------------------------------------------Confirm Password------------------------------------------------------------------------------------------>
           
