@@ -125,7 +125,7 @@
             </div>
           </div>
           <div>
-            <a href="{{ route('login') }}" class="w-full flex items-center justify-center rounded-md bg-green-600 py-2 px-4 font-semibold text-white shadow-lg transition duration-150 ease-in-out hover:bg-green-700 hover:shadow-xl focus:shadow-xl focus:outline-none focus:ring-2 
+            <a href="{{ route('dashboard') }}" class="w-full flex items-center justify-center rounded-md bg-green-600 py-2 px-4 font-semibold text-white shadow-lg transition duration-150 ease-in-out hover:bg-green-700 hover:shadow-xl focus:shadow-xl focus:outline-none focus:ring-2 
             focus:ring-green-500 focus:ring-offset-2">Register</a>
           </div>
         </form>
