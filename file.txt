@@ -10,3 +10,5 @@ php atisan migrate (table mysql)
 npm install -D @tailwindcss/forms
 
 php artisan make:controller Auth/RegisterController. робиться контролер app/htt/controller/auth/RegisterController
+
+https://mailtrap.io/inboxes/2350225/messages
