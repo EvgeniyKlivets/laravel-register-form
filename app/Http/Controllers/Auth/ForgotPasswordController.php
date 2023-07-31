@@ -25,17 +25,26 @@ class ForgotPasswordController extends Controller
     //створення нового користувача
     public function store(Request $request)//import down
     {
-        //validate
+        //validate-якщо невірно введено 
        $request->validate([
 
             'email'=>['required', 'email',]//унікальні емайли з табл. юзерс
             
         ]);
 
-        
-        
+        //відправляєм ссилку користувача
+
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+        //якщо все ок, то попадаємо сюди
+
+        if ($status === Password::RESET_LINK_SENT){
+            return back()->with('status', trans($status));
+        }
+        //Кщо не вірно введено емайл
+        return back()->withInput($request->only('email'))
+                     ->withErrors(['email' => trans($status)]);
     }
       
-    
-    
 }
