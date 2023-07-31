@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use Illuminate\Support\Facades\Route;
 //use Illuminate\Routing\UrlGenerator;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -34,8 +35,10 @@ Route:: get('/welcome', [LoginController::class, 'destroy'])->middleware('auth')
 Route:: get('/login', [LoginController::class, 'create'])->name('login');//middleware('quest')
 Route:: post('/login', [LoginController::class, 'store'])->middleware('quest');
 
-Route:: get('/forgot-password', [ForgotPasswordController::class, 'create'])->middleware('quest')->name('password.request');//middleware('quest')
+Route:: get('/forgot-password', [ForgotPasswordController::class, 'create'])->name('password.request');//middleware('quest')
 Route:: post('/forgot-password', [ForgotPasswordController::class, 'store'])->middleware('quest')->name('password.email');
+
+Route:: get('/reset-password', [ResetPasswordController::class, 'create'])->name('password.reset');//middleware('quest')
 
 
 
