@@ -1,3 +1,4 @@
+https://www.youtube.com/watch?v=2ttoOuMjsJQ&list=PL-FhWbGlJPfbQNYUvmHM6qZ54vxuZ8zeS&index=16&ab_channel=%D0%98%D0%B3%D0%BE%D1%80%D1%8C%D0%91%D0%B0%D0%B1%D0%BA%D0%BE
 Dowload laravel, tailwildcss(all)
 npm install -D @tailwindcss/forms
 (tailwindcss.config.js: plugins: [
